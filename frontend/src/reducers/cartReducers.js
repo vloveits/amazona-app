@@ -1,4 +1,3 @@
-import e from "express";
 import { CART_ADD_ITEM } from "../constants/cartConstants";
 
 export const cartReducer = (state = { cartItems: [] }, action) => {
@@ -10,7 +9,7 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
         return {
           ...state,
           cartItems: state.cartItems.map((x) =>
-            e.product === existItem.product ? item : x
+            x.product === existItem.product ? item : x
           ),
         };
       } else {
