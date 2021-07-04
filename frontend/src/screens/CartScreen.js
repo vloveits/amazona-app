@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "../actions/cartActions";
-import MessageBox from "../components/MessageBox";
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, removeFromCart } from '../actions/cartActions';
+import MessageBox from '../components/MessageBox';
+import { Link } from 'react-router-dom';
 
 export default function CartScreen(props) {
   const dispatch = useDispatch();
   const productId = props.match.params.id;
   const qty = props.location.search
-    ? Number(props.location.search.split("=")[1])
+    ? Number(props.location.search.split('=')[1])
     : 1;
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -23,7 +23,7 @@ export default function CartScreen(props) {
   };
 
   const checkoutHandler = () => {
-    props.history.push("/signin?redirec=shipping");
+    props.history.push('/signin?redirect=shipping');
   };
   return (
     <div className="row top">
