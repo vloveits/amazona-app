@@ -12,6 +12,8 @@ import ShippingAdressScreen from './screens/ShippingAdressScreen';
 import SigninScreen from './screens/SigninScreen';
 import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import PrivateRouter from './components/PrivateRouter';
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -45,6 +47,9 @@ function App() {
                 </Link>
                 <ul className="dropdown-content">
                   <li>
+                    <Link to="/profile">User Profile</Link>
+                  </li>
+                  <li>
                     <Link to="/orderhistory">Order History</Link>
                   </li>
                   <li>
@@ -69,6 +74,10 @@ function App() {
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
+          <PrivateRouter
+            path="/profile"
+            component={ProfileScreen}
+          ></PrivateRouter>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">All right reserved</footer>
